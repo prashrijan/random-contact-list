@@ -35,20 +35,98 @@ html,body{
     position: absolute;
     color: red;
     font-size: 5rem;
-    top: 90%;
+    top: 88%;
     left: 50%;
     font-weight: bold;
     transform: rotate(90deg);
-    animation: goDown 1s infinite;
+    animation: goDown .8s infinite ease-in-out;
 }
 
 @keyframes goDown {
     0%{
-        top: 90%;
+        top: 88%;
         left: 50%;
     }
     100%{
-        top: 93%;
+        top: 90%;
 
     }
+}
+
+nav{
+    background-color: black;
+    position: sticky;
+    display: flex;
+    align-items: center;
+    color: orange;
+    justify-content: space-between;
+    padding: 2rem 4rem;
+    top: 0;
+    z-index: 999;
+}
+
+.menu{
+    display: flex;
+    gap: 4rem;
+}
+
+nav  h2{
+    font-size: 2rem;
+}
+
+
+a{
+    text-decoration: none;
+    color: orange;
+    font-size: 1.5rem;
+}
+
+.container{
+    height: 50vh;
+    padding: 6rem;
+    font-size: 1.8rem;
+}
+
+[class^="img"]{
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.title{
+    background-color: rgba(0, 0, 0, 0.483);
+    color: white;
+    text-transform: uppercase;
+    padding: 1rem;
+}
+
+.img1{
+    background: url(assests/img1.avif);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.img2{
+    background: url(assests/img2.avif);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.img3{
+    background: url(assests/img3.avif);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.img4{
+    background: url(assests/img4.avif);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
 }

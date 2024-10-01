@@ -121,3 +121,16 @@ html, body{
     width: var(--planet-Size);
     transform: translateX(300px);
 }
+
+.jupiter-container{
+    height: 550px;
+    width: 550px;
+    animation: rotate 7s linear infinite ;
+    position: absolute;
+}
+
+.jupiter{
+    height: var(--planet-Size);
+    width: var(--planet-Size);
+    transform: translateX(355px);
+}

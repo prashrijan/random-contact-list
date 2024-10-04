@@ -276,10 +276,17 @@ nav{
     width: 80%;
     justify-content: space-evenly;
     align-items: center;
+    padding: 2rem 4rem;
+    margin: 2rem 0;
 }
 
 .about-me-container .text h2{
     font-size: 2.5rem;
+}
+
+.about-me-container .text p{
+    font-size: 1.5rem;
+    margin-top: 1rem;
 }
 
 @media screen and (max-width: 700px) {

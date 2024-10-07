@@ -346,10 +346,35 @@ input{
 }
 
 footer{
-    height: 200px;
+    padding: 3rem;
     width: 100%;
     background-color: #b46b5f;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 5rem;
 }
+
+.page-links, .social-links{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    font-weight: 600;
+}
+
+.top{
+    position: fixed;
+    height: 60px;
+    width: 60px;
+    background-color: #b46b5f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    bottom: 5%;
+    right: 5%;
+}
+
 
 @media screen and (max-width: 700px) {
     

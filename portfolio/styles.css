@@ -122,7 +122,7 @@ nav{
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-    margin-top: 100px;
+    padding-top: 150px;
     background-color: inherit;
 }
 
@@ -238,7 +238,6 @@ nav{
 }
 
 .projects{
-    margin-top: 50px;
     padding: 6rem;
 }
 
@@ -269,7 +268,6 @@ nav{
     align-items: center;
     justify-content: center ;
     flex-direction: column;
-    margin-top: 30px;
 }
 
 .about-me-container{
@@ -339,7 +337,7 @@ button{
 }
 input{
     padding: 1rem;
-    outline: none;
+    outline: 1px solid #dd5541;
     border-radius: 2rem;
     border: none;
     background-color: #b46a5f60;
@@ -391,13 +389,17 @@ footer{
     color: var(--dark-text);
 }
 
-#themeToggler:checked + .themeToggler + .wrapper button,
+#themeToggler:checked + .themeToggler{
+    color: white;
+}
+
 #themeToggler:checked + .themeToggler + .wrapper input,
 #themeToggler:checked + .themeToggler + .wrapper #skills,
 #themeToggler:checked + .themeToggler + .wrapper #projects, 
 #themeToggler:checked + .themeToggler + .wrapper #about,
 #themeToggler:checked + .themeToggler + .wrapper #contact,
-#themeToggler:checked + .themeToggler + .wrapper nav>.links{
+#themeToggler:checked + .themeToggler + .wrapper nav .links a,
+#themeToggler:checked + .themeToggler + .wrapper .project a{
     background-color: var(--dark-bg);
     color: var(--dark-text);
 }
@@ -444,7 +446,7 @@ footer{
     }
 
     .hero{
-        margin-top: 200px;
+        padding-top: 35rem;
     }
 
     .hero-container{
@@ -453,8 +455,8 @@ footer{
         overflow: visible;
         width: 90%;
         gap: 4rem;
-        height: 100%;
-        padding: 6rem 5rem;
+        height: 500px;
+        padding: 10rem 5rem;
     }
 
     .hero-container .text-container{
@@ -478,9 +480,13 @@ footer{
         height: auto;
         object-fit: cover;
     }
+
+    .skills{
+        padding-top: 20rem;
+    }
     
     .projects{
-       padding: 0rem 2rem; 
+       padding: 10rem 2rem; 
     }
 
     .projects-container .project{

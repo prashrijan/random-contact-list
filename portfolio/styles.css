@@ -1,15 +1,10 @@
 
 
 :root{
-    --bg-color: black;
-    --text-color: white;
-
+    --light-bg: #f0f0f0;
+    --light-text: #000;
+    --dark-bg: #1a1a1a;
     --dark-text: #fff;
-    --dark-bg : #000;
-
-    --light-text : #000;
-    --light-bg: #fff;
-
 }
 
 *{ 
@@ -27,6 +22,9 @@ html,body{
     font-size: 16px;
     scroll-behavior: smooth;
     position: relative;
+    background-color: var(--light-bg);
+    color: var(--light-text);
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 a{
@@ -42,6 +40,7 @@ i{
 .wrapper{
     height: 100vh;
     width: 100%;
+    background-color: inherit;
 }
 
 
@@ -53,9 +52,9 @@ nav{
     padding: 2rem 3rem;
     box-shadow: 2px 5px 9px 2px rgba(0,0,0,0.05);
     position: fixed;
-    background-color: #fff;
+    background-color: inherit;
     top: 0;
-    z-index: 1;
+    z-index: 999;
 }
 
 .logo{
@@ -124,6 +123,7 @@ nav{
     align-items: center;
     gap: 2rem;
     margin-top: 100px;
+    background-color: inherit;
 }
 
 .hero-container{
@@ -366,13 +366,44 @@ footer{
     position: fixed;
     height: 60px;
     width: 60px;
-    background-color: #b46b5f;
+    background-color: #dd5541;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     bottom: 5%;
     right: 5%;
+}
+
+#themeToggler{
+    display: none;
+}
+
+.themeToggler{
+    position: fixed;
+    top: 15%;
+    left: 2%;
+    cursor: pointer;
+}
+
+#themeToggler:checked + .themeToggler + .wrapper {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+#themeToggler:checked + .themeToggler + .wrapper button,
+#themeToggler:checked + .themeToggler + .wrapper input,
+#themeToggler:checked + .themeToggler + .wrapper #skills,
+#themeToggler:checked + .themeToggler + .wrapper #projects, 
+#themeToggler:checked + .themeToggler + .wrapper #about,
+#themeToggler:checked + .themeToggler + .wrapper #contact,
+#themeToggler:checked + .themeToggler + .wrapper nav>.links{
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+.projects, .about{
+    background-color: inherit;
 }
 
 
@@ -413,7 +444,7 @@ footer{
     }
 
     .hero{
-        margin-top: 250px;
+        margin-top: 200px;
     }
 
     .hero-container{

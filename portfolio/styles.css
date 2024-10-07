@@ -63,6 +63,21 @@ nav{
     gap: .6rem;
 }
 
+.logo span:first-child{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.logo span:first-child::after{
+    display: inline-block;
+    content: "";
+    height: 40px;
+    width: 4px;
+    background-color: #dd5541;
+
+}
+
 
 .logo span{
     font-size: 1.7rem;

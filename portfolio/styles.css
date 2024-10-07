@@ -176,7 +176,7 @@ nav{
 }
 
 .hero-container .img-container img{
-    height: 115%;
+    height: 116%;
 }
 
 .hero-info{
@@ -222,6 +222,7 @@ nav{
 .title{
     font-size: 2rem;
     text-align: center;
+    font-weight: 600;
 }
 
 .skills-container{
@@ -238,7 +239,7 @@ nav{
 
 .projects{
     margin-top: 50px;
-    padding: 3rem 5rem;
+    padding: 6rem;
 }
 
 .projects-container{
@@ -268,6 +269,7 @@ nav{
     align-items: center;
     justify-content: center ;
     flex-direction: column;
+    margin-top: 30px;
 }
 
 .about-me-container{
@@ -289,6 +291,56 @@ nav{
 .about-me-container .text p{
     font-size: 1.5rem;
     margin-top: 1rem;
+}
+
+.contact{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem;
+}
+
+.contact-left{
+    height: 100%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    padding: 6rem;
+    align-items: flex-start;
+    justify-content: center;
+    gap: .8rem;
+}
+
+.contact-left h2{
+    font-size: 2rem;
+    line-height: 1.2;
+}
+
+button{
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border: none;
+    background-color: #b46b5f;
+    border-radius: 2rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.contact-right{
+    height: 100%;
+    width:80%;
+    display: flex;
+    flex-direction: column;
+    padding: 6rem;
+    gap: 1rem;
+}
+input{
+    padding: 1rem;
+    outline: none;
+    border-radius: 2rem;
+    border: none;
+    background-color: #b46a5f60;
 }
 
 @media screen and (max-width: 700px) {
@@ -328,7 +380,7 @@ nav{
     }
 
     .hero{
-        margin-top: 150px;
+        margin-top: 250px;
     }
 
     .hero-container{
@@ -337,7 +389,7 @@ nav{
         overflow: visible;
         width: 90%;
         gap: 4rem;
-        height: 110%;
+        height: 100%;
         padding: 6rem 5rem;
     }
 
@@ -345,11 +397,11 @@ nav{
         order: 2;
         width: 100%;
         text-align: center;
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .hero-container .img-container {
-        height: auto;
+        height: 70%;
         width: 100%;
         display: flex;
         align-items: center;
@@ -361,5 +413,32 @@ nav{
         width: 100%;
         height: auto;
         object-fit: cover;
+    }
+    
+    .projects{
+       padding: 0rem 2rem; 
+    }
+
+    .projects-container .project{
+        width: 100%;
+    }
+
+    .projects-container .project img{
+        width: 100%;
+        height: auto;
+    }
+
+    
+    .info{
+        border: none;
+    }
+
+    .about-me-container{
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .about-me-container .img img{
+        width: 90%;
     }
 }

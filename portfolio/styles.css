@@ -142,14 +142,14 @@ nav{
 }
 
 .hero-container{
-    height: 900px;
-    width: 65%;
+    height: 100%;
+    width: 70%;
     display: flex;
     align-items: center;
     background-color: #b46b5f;
-    padding: 3rem 5rem;
+    padding: 2rem 5rem;
     border-radius: 5rem;
-    overflow: hidden;
+    margin-top: 100px;
 }
 
 .hero-container .text-container{
@@ -158,12 +158,12 @@ nav{
 }
 
 .hero-container .text-container h1{
-    font-size: 5em;
+    font-size: 2.5em;
     opacity: .8;
 }
 
 .hero-container .text-container h2{
-    font-size: 2.4em;
+    font-size: 3.5em;
 }
 
 .hero-container .text-container p{
@@ -185,12 +185,7 @@ nav{
     color: #fff;
 }
 
-.hero-container .img-container{
-    width: 30%;
-    height: 100%;
-}
-
-.hero-container .img-container img{
+.hero-container img{
     height: 116%;
 }
 
@@ -502,7 +497,7 @@ footer{
     }
 
     .hero{
-        padding-top: 35rem;
+        padding-top: 25rem;
     }
 
     .hero-container{
@@ -510,9 +505,9 @@ footer{
         justify-content: center;
         overflow: visible;
         width: 90%;
-        gap: 4rem;
-        height: 500px;
-        padding: 10rem 5rem;
+        height: 70vh;
+        gap: 2rem;
+        padding: 10rem 5rem 12rem;
     }
 
     .hero-container .text-container{

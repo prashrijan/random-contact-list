@@ -24,7 +24,7 @@ html,body{
     height:100%;
     background-color: rgba(255,249,251,255);
     font-family: "Ubuntu", sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     scroll-behavior: smooth;
     position: relative;
     background-color: var(--light-bg);
@@ -136,7 +136,7 @@ nav{
 .hero{
     display: flex;
     justify-content: center;
-    height: 100vh;
+    height: 104vh;
     width: 100%;
     padding: 8rem 0;
     flex-direction: column;
@@ -265,6 +265,7 @@ nav{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
     gap: 4rem;
+    place-items: center;
 }
 
 .project:hover .project-content{
@@ -292,6 +293,7 @@ nav{
     right: 0;
     bottom: 0;
     backface-visibility: hidden;
+    text-align: center;
 }
 
 .project-front img{
@@ -324,18 +326,26 @@ nav{
     align-items: center;
     justify-content: center ;
     flex-direction: column;
+    padding: 4rem;
+    gap: 1rem;
 }
 
 .about-me-container{
     display: flex;
     background-color: #b46b5f;
-    width: 80%;
+    width: 100%;
     justify-content: space-evenly;
     align-items: center;
     padding: 2rem 4rem;
     margin: 2rem 0;
     border-radius: 2rem;
     gap: 1rem;
+    height: 70vh;
+
+}
+
+.about-me-container img{
+    height: 114%;
 }
 
 .about-me-container .text h2{
@@ -348,11 +358,11 @@ nav{
 }
 
 .contact{
-    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 10rem;
+    gap: 4rem;
 }
 
 .contact-left{
@@ -544,7 +554,7 @@ footer{
     }
     
     .projects{
-       padding: 10rem 2rem; 
+       padding: 4rem 2rem; 
     }
 
     .projects-container .project{
@@ -564,9 +574,11 @@ footer{
     .about-me-container{
         justify-content: center;
         flex-direction: column;
+        text-align: center;
+        height: auto;
     }
 
-    .about-me-container .img img{
+    .about-me-container img{
         width: 90%;
     }
 

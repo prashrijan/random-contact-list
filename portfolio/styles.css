@@ -299,6 +299,8 @@ nav{
 .project-front img{
     height: 100%;
     width: 100%;
+    object-position: center;
+    object-fit: cover;
 }
 
 .project-back{
@@ -449,6 +451,7 @@ footer{
     top: 15%;
     left: 2%;
     cursor: pointer;
+    z-index: 99;
 }
 
 #themeToggler:checked + .themeToggler + .wrapper {
@@ -477,7 +480,7 @@ footer{
 
 
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 600px) {
     
     html{
         font-size: 14px;
@@ -560,12 +563,6 @@ footer{
     .projects-container .project{
         width: 100%;
     }
-
-    .projects-container .project img{
-        width: 100%;
-        height: auto;
-    }
-
     
     .info{
         border: none;

@@ -7,7 +7,7 @@
 }
 
 ::selection{
-    background-color: #b46b5f;
+    background-color: #dd5541;
     color: #000;
 }
 
@@ -16,6 +16,14 @@
     padding:0;
     box-sizing: border-box;
     /* outline: 1px solid black; */
+}
+
+button{
+    transition: all ease .5s;
+}
+
+button:hover{
+    transform: scale(1.1);
 }
 
 
@@ -236,6 +244,15 @@ nav{
     gap: 3rem;
     padding: 5rem 3rem;
     text-align: center;
+}
+
+.skill{
+    transition: all ease .5s;
+}
+
+.skill:hover{
+    transform: scale(1.2);
+    cursor: pointer;
 }
 
 .title{

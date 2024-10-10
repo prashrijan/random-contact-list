@@ -276,6 +276,7 @@ nav{
 
 .projects{
     padding: 4rem;
+    width: 100%;
 }
 
 .projects-container{
@@ -346,7 +347,7 @@ nav{
     align-items: center;
     justify-content: center ;
     flex-direction: column;
-    padding: 2rem 4rem;
+    padding: 2rem;
     gap: 1rem;
 }
 
@@ -549,11 +550,15 @@ footer{
         font-size: 1rem
     }
     .projects{
-        padding: 4rem 2rem; 
+        padding: 4rem 2rem;
      }
  
     .projects-container .project{
         width: 100%;
+     }
+
+     .about{
+        padding: 2rem;
      }
 
     .about-me-container{
@@ -575,7 +580,6 @@ footer{
 
     .contact-left, .contact-right{
         width: 100%;
-        text-align: center;
     }
 }
 

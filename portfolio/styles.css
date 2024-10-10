@@ -505,13 +505,6 @@ footer{
     color: var(--dark-text);
 }
 
-#themeToggler:checked + .themeToggler + .wrapper .info{
-    border-right: 2px solid #fff;
-}
-
-
-
-
 
 footer a {
     display: flex;
@@ -658,8 +651,8 @@ footer a:hover{
         padding-top: 20rem;
     }
     
-    .info{
-        border: none;
+    .hero-info .info{
+        border-right: none;
     }
 
     .projects-container{

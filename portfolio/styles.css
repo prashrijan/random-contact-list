@@ -280,10 +280,11 @@ nav{
 
 .projects-container{
     margin-top: 4rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 4rem;
-    place-items: center;
+    flex-wrap: wrap;
 }
 
 .project:hover .project-content{
@@ -315,9 +316,8 @@ nav{
 }
 
 .project-front img{
-    height: 100%;
-    width: 100%;
-    object-position: center;
+    height: 80%;
+    max-width: 100%;
     object-fit: cover;
 }
 
@@ -329,7 +329,7 @@ nav{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-
+    height: 80%;
 }
 
 .project-back p{
@@ -346,7 +346,7 @@ nav{
     align-items: center;
     justify-content: center ;
     flex-direction: column;
-    padding: 4rem;
+    padding: 2rem 4rem;
     gap: 1rem;
 }
 
@@ -554,7 +554,6 @@ footer{
  
     .projects-container .project{
         width: 100%;
-
      }
 
     .about-me-container{
@@ -620,10 +619,12 @@ footer{
         padding-top: 20rem;
     }
     
-
-    
     .info{
         border: none;
+    }
+
+    .projects-container{
+        gap: 0;
     }
 
     

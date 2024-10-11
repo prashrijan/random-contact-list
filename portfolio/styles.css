@@ -1,6 +1,6 @@
 
 :root{
-    --light-bg: #f0f0f0;
+    --light-bg: #d9dcd6;
     --light-text: #000;
     --dark-bg: #1a1a1a;
     --dark-text: #fff;
@@ -89,7 +89,7 @@ nav{
     content: "";
     height: 40px;
     width: 4px;
-    background-color: #dd5541;
+    background-color: #16425b;
 
 }
 
@@ -125,7 +125,7 @@ nav{
     height: 3px;
     bottom: -2px;
     left: 0;
-    background-color: #b46b5f;
+    background-color: #16425b;
     transition: transform .25s ease-out;
 }
 
@@ -161,7 +161,7 @@ nav{
     width: 70%;
     display: flex;
     align-items: center;
-    background-color: #b46b5f;
+    background-color: #81c3d7;
     padding: 2rem 5rem;
     border-radius: 5rem;
     margin-top: 100px;
@@ -204,7 +204,7 @@ nav{
 }
 
 .hero-container img{
-    height: 115%;
+    height: 117%;
 }
 
 .hero-info{
@@ -354,7 +354,7 @@ nav{
 
 .about-me-container{
     display: flex;
-    background-color: #b46b5f;
+    background-color: #81c3d7;
     width: 80%;
     justify-content: space-evenly;
     align-items: center;
@@ -406,7 +406,7 @@ button{
     padding: 1rem 2rem;
     font-size: 1.2rem;
     border: none;
-    background-color: #b46b5f;
+    background-color: #81c3d7;
     border-radius: 2rem;
     font-weight: 600;
     cursor: pointer;
@@ -424,16 +424,17 @@ button{
 }
 input{
     padding: 1rem;
-    outline: 1px solid #dd5541;
+    outline: 1px solid #16425b;
     border-radius: 2rem;
     border: none;
-    background-color: #b46a5f60;
+    background-color: #81c3d7;
+    color: var(--light-text);
 }
 
 footer{
     padding: 3rem;
     width: 100%;
-    background-color: #b46b5f;
+    background-color: #3a7ca5;
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -532,7 +533,7 @@ footer a:hover{
         flex-direction: column;
         gap: 2rem;
         position: absolute;
-        top: 90px;
+        top: 97px;
         padding: 2rem;
         left: -100%;
         transition: left ease .3s;

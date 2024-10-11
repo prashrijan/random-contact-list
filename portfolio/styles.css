@@ -210,7 +210,7 @@ nav{
 .hero-info{
     max-width: 950px;
     width: 80%;
-    border: 2px solid #b46b5f;
+    border: 2px solid #16425b;
     border-radius: 2rem;
     padding: 1rem 2rem;
     display: flex;
@@ -235,7 +235,7 @@ nav{
 }
 
 .info i{
-    color: #b46b5f;
+    color: #16425b;
     font-size: 2.5rem;
 }
 
@@ -387,6 +387,7 @@ nav{
     justify-content: center;
     padding: 4rem 10rem;
     gap: 4rem;
+    background-color: #8fd7ed6c;
 }
 
 .contact-left{

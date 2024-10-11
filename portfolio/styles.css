@@ -355,7 +355,7 @@ nav{
 .about-me-container{
     display: flex;
     background-color: #b46b5f;
-    width: 100%;
+    width: 80%;
     justify-content: space-evenly;
     align-items: center;
     padding: 2rem 4rem;
@@ -363,11 +363,11 @@ nav{
     border-radius: 2rem;
     gap: 1rem;
     height: 70vh;
-
+    overflow: hidden;
 }
 
 .about-me-container img{
-    height: 114%;
+    height: 130%;
 }
 
 .about-me-container .text h2{

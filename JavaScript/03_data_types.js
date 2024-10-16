@@ -22,6 +22,34 @@ console.log(typeof isEmpty, isEmpty);
 
 
 
+// Refernce Data Types
+
+const user = {
+    name : "Prashrijan",
+    age: 21
+}
+
+console.log(user);
+
+const user1 = user
+console.log(user1);
+
+user.name = "Shrestha"
+console.log(user);
+console.log(user1);
+
+
+
+
+// console.log(typeof user);
+
+
+const languages = ["Nepali", "English", "Spanish", "Hindi"]
+
+// console.log(languages);
+// console.log(typeof languages);
+
+
 
 
 

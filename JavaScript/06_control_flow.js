@@ -18,15 +18,23 @@
 // }
 
 
-const age = 10
+// const age = 10
 
-if(age >= 18 && age <=60 ){
-    console.log("You are an adult");
-}
+// if(age >= 18 && age <=60 ){
+//     console.log("You are an adult");
+// }
 
-const isVip = true
+// const isVip = true
 
-if(age >=18 || isVip){
-    console.log("Welcome to the party");
+// if(age >=18 || isVip){
+//     console.log("Welcome to the party");
     
-}
+// }
+
+// if(""){
+//     console.log("Hello");
+// }else{
+//     console.log("Namaste");
+// }
+
+

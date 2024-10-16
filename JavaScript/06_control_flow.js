@@ -38,21 +38,54 @@
 // }
 
 
-let grade = 10
+// let grade = 10
 
-if(grade > 90 && grade <= 100){
-    console.log("A+")
-}else if(grade > 80 && grade <= 90){
-    console.log("A");
-}else if(grade > 70 && grade <= 80){
-    console.log("B+");
-}else if(grade > 60 && grade <= 70){
-    console.log("B");
-}else if(grade > 50 && grade <= 60){
-    console.log("C+");
-}else if(grade > 40 && grade <= 50){
-    console.log("C");
-}else{
-    console.log("You Failed");
+// if(grade > 90 && grade <= 100){
+//     console.log("A+")
+// }else if(grade > 80 && grade <= 90){
+//     console.log("A");
+// }else if(grade > 70 && grade <= 80){
+//     console.log("B+");
+// }else if(grade > 60 && grade <= 70){
+//     console.log("B");
+// }else if(grade > 50 && grade <= 60){
+//     console.log("C+");
+// }else if(grade > 40 && grade <= 50){
+//     console.log("C");
+// }else{
+//     console.log("You Failed");
     
+// }
+
+let date = new Date()
+
+let day = date.getDay()
+
+
+switch(day){
+    case 0:
+        console.log("It's Sunday.");
+        break;
+    case 1:
+        console.log("It's Monday.");
+        break;
+    case 2:
+        console.log("It's Tuesday.");
+        break;
+    case 3:
+        console.log("It's Wednesday.");
+        break;
+    case 4:
+        console.log("It's Thursday.");
+        break;
+    case 5:
+        console.log("It's Friday.");
+        break;
+    case 6:
+        console.log("It's Saturday.");
+        break;
+    
+    default:
+        console.log("Something went wrong...");
+        
 }

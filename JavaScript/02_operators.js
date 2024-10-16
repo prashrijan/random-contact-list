@@ -38,6 +38,15 @@ const pi = Math.PI
 
 
 
-let random = Math.floor((Math.random() * 100) + 1)
+// let random = Math.floor((Math.random() * 100) + 1)
 
-console.log(random);
+// console.log(random);
+
+
+
+// Comparision Operators
+const num1 = 2
+const num2 = 3
+
+console.log(num1 < num2);
+

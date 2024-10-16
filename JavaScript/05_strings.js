@@ -20,10 +20,17 @@ const str = "Hello world, my name is \"Prashrijan Shrestha\""
 
 // console.log(strPart);
 
-const val = str.includes("Prashrijan")
-console.log(val);
+// const val = str.includes("Prashrijan")
+// console.log(val);
 
-console.log(str.search("Shrestha"));
+// console.log(str.search("Shrestha"));
+
+console.log(str.trim());
+
+console.log(str.split(" "));
+
+console.log(str.concat(". I live in Sydney."));
+
 
 
 

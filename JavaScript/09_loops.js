@@ -32,12 +32,30 @@
 
 const fruits = ["apple", "banana", "mango", "orange"]
 
-const upperCaseFruits = []
+// For of Loop
 
-for(let fruit of fruits){
-    
-    upperCaseFruits.push(fruit.toUpperCase())
-    
-}
+// const upperCaseFruits = []
 
-console.log(upperCaseFruits);
+// for(let fruit of fruits){
+    
+//     upperCaseFruits.push(fruit.toUpperCase())
+    
+// }
+
+// console.log(upperCaseFruits);
+
+
+// For Each
+
+// doesnot do anything to the array and doesnot create a new array
+// fruits.forEach((fruit, index, arr) => console.log(fruit, index, arr)) 
+
+// Map
+// It allows to create new sub array without mutating the array
+
+const newData = fruits.map((fruit, index) => {
+    
+    return [fruit,index]
+})
+
+console.log(newData);

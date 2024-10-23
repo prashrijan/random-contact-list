@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;    
+    }
+
+    .container{
+        height: 100dvh;
+        width: 100vw;
+        position: relative;
+    }
+
+    .hero{
+        position: absolute;
+        bottom: 0;
+        height: 70%;
+        width: 100%;
+        background: url(./wave.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+</style>
+<body>
+    <div class="container">
+        <div class="hero" draggable="true"></div>
+
+    </div>
+</body>
+</html>

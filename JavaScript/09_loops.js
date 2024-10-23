@@ -28,3 +28,16 @@
 // }
 
 // console.log(nums);
+
+
+const fruits = ["apple", "banana", "mango", "orange"]
+
+const upperCaseFruits = []
+
+for(let fruit of fruits){
+    
+    upperCaseFruits.push(fruit.toUpperCase())
+    
+}
+
+console.log(upperCaseFruits);

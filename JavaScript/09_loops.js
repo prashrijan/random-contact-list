@@ -53,9 +53,10 @@ const fruits = ["apple", "banana", "mango", "orange"]
 // Map
 // It allows to create new sub array without mutating the array
 
-const newData = fruits.map((fruit, index) => {
+// const newData = fruits.map((fruit, index) => {
     
-    return [fruit,index]
-})
+//     return [fruit,index]
+// })
 
-console.log(newData);
+// console.log(newData);
+

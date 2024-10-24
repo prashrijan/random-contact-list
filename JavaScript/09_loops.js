@@ -63,9 +63,29 @@ const fruits = ["apple", "banana", "mango", "orange"]
 // Filter
 // needs to return true
 
-const newData = fruits.filter(fruit => {
-    return fruit.startsWith("b")    
-})
+// const newData = fruits.filter(fruit => {
+//     return fruit.startsWith("b")    
+// })
 
-console.log(newData);
-console.log(fruits);
+// console.log(newData);
+// console.log(fruits);
+
+
+// Reduce Method
+const cart = [1200, 200, 305, 320, 450, 435]
+
+const total = cart.reduce((sum, amount) => {
+    return sum + amount
+}, 0)
+
+// First Iteration
+// // 0 + 1200 => 1200
+// sum updated to = 1200
+
+// Second Iteration
+// // 1200 + 200 => 1400
+// sum updated to 1400
+
+// and soon 
+
+console.log(total);

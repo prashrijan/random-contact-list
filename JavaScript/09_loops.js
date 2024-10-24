@@ -88,4 +88,15 @@ const total = cart.reduce((sum, amount) => {
 
 // and soon 
 
-console.log(total);
+// console.log(total);
+
+// Every
+// does every item in the array passes the condition
+
+const nums1 = [1, 2, 3, 4, 5, 6, 7, "8", 9]
+const nums2 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+console.log(nums1.every(num => typeof(num) === 'number'))
+console.log(nums2.every(num => typeof(num) === 'number'))
+
+

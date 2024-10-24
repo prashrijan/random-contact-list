@@ -6,4 +6,8 @@ const person = {
 }
 
 
+const data = person.skills[1]
+
 console.log(person);
+
+console.log(data)

@@ -50,3 +50,17 @@ console.log(newArr);
  
 
 // Challange #2 create unique array 50 numbers rang between 1 and 100 programmatically
+let nums = []
+
+
+for(let i = 0; i < 50; i++){
+    let randomNumber = Math.floor((Math.random() * 100) + 1)
+
+    if(nums.includes(randomNumber)){
+        continue;
+    }else{
+        nums.push(randomNumber)
+    }
+}
+
+console.log(nums);

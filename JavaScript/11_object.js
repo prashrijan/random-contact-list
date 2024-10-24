@@ -1,13 +1,8 @@
-const person = {
-    name: "Prashrijan Shrestha",
-    age : 21,
-    isAdult : () => this.age > 18,
-    skills: ["HTML", "CSS", "JS"],
-}
+// 
+
+// Shallow Copy / Deep Copy
+
+// Shallow => only first level copy not nested
 
 
-const data = person.skills[1]
-
-console.log(person);
-
-console.log(data)
+// Deep copy => copy whole obj

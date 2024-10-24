@@ -60,3 +60,12 @@ const fruits = ["apple", "banana", "mango", "orange"]
 
 // console.log(newData);
 
+// Filter
+// needs to return true
+
+const newData = fruits.filter(fruit => {
+    return fruit.startsWith("b")    
+})
+
+console.log(newData);
+console.log(fruits);

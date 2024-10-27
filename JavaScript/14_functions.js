@@ -2,7 +2,8 @@ const users = [
     {
         name: "Prashrijan",
         address: "Dee Why, Sydney",
-        hobbies: "Coding"
+        hobbies: "Coding",
+        career: "Software Developer"
     },
     {
         name: "Anuska",
@@ -33,9 +34,19 @@ users.forEach(user => {
     console.log(bio)
 });
 
-function createBio({name, address, hobbies}){
+function career({career}) {
+    return ` He is a ${career}`
+}
 
-    return `${name} is from ${address}, and likes to ${hobbies}`    
+function createBio({name="", address="", hobbies="", ...rest}){
+
+    let str = `${name} is from ${address}, and likes to ${hobbies}`
+
+    if(rest.career){
+        str += career(rest)   
+    }
+    
+    return str
 }
 
 

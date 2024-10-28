@@ -14,7 +14,11 @@ const person = {
         postcode : 2099
     },
     
-    getFullAddress: function(){
+    getYearDiff: function(year){
+        return this.dob.year - year
+    }
+
+    ,getFullAddress: function(){
         return `The full address is: ${this.address.street}, ${this.address.city}, ${this.address.state}, ${this.address.postcode}`
     },
     

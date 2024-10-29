@@ -181,5 +181,23 @@ console.log(countOccurence('Prashrijan', 'a'));
 
 
 
+function sum(num){
+
+    let total = 0
+
+    while(num > 0){
+
+        let ones = parseInt(num % 10)
+
+        total += ones
+
+        num = parseInt(num / 10)
+        
+        
+    }
+
+    return total
+}
 
 
+console.log(sum(18))

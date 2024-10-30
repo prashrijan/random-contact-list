@@ -83,4 +83,51 @@
 // console.log(student1.address);
 
 
+// OOP Challenge 
+
+class Car{
+    constructor(model, engine = false){
+        this.engine = engine
+        this.model = model
+    }
+
+    startEngine(){
+        if(!this.engine){
+            this.engine = true
+            return `The ${this.model} engine is ready to drive.`
+        }else{
+            return `The ${this.model} engine is already to started.`
+        }
+    }
+
+    drive(){
+        if(this.engine){
+            return `The ${this.model} is now running.`
+        }else{
+            return `Please start the car to drive.`
+        }
+    }
+
+    stopEngine(){
+        if(this.engine){
+            this.engine = false
+            return `The ${this.model} is now stopped.`
+        }else{
+            return `The engine is not started yet.`
+        }
+    }
+}
+
+
+let myTesla = new Car("Tesla")
+
+
+console.log(myTesla.startEngine());
+console.log(myTesla.drive());
+console.log(myTesla.stopEngine());
+console.log(myTesla);
+
+console.log(myTesla.drive());
+
+
 

@@ -42,8 +42,6 @@ const multiply = (val, num) => {
 //  const ttl = calc(2, 3)(5)
 //  console.log(ttl)
 
-const calc = (a, b, c) => {
-    return multiply(add(a, b), c)
-}
+const calc = (a, b, c) => multiply(add(a, b), c)
 
 console.log(calc(2, 4, 2))

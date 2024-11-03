@@ -75,3 +75,16 @@ paraElem.classList.add("success");
 console.log(paraElem.classList);
 
 // paraElem.classList.remove("success");
+
+// const changeUI = (elem) => {
+//   elem.classList.toggle("success");
+// };
+
+const button = document.querySelector(".display");
+
+const changeUI = (e) => {
+  button.classList.toggle("success");
+  console.log(e);
+};
+
+button.addEventListener("click", changeUI);

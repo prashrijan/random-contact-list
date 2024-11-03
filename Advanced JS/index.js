@@ -1,26 +1,30 @@
-class Person {
-    constructor(firstName, lastName, age, isMarried){
-        this.firstName = firstName
-        this.lastName = lastName
-        this.age = age
-        this.isMarried = isMarried
-    }
+function flatternArray1(arr){
     
-    getFullName(){
-        return this.firstName + " " + this.lastName
+    let flattenedArray = []
+
+    function helper(innerArray){
+        for(let i = 0; i < innerArray.length; i++){
+            if(Array.isArray(innerArray[i])){
+                helper(innerArray[i])
+            }else{
+                flattenedArray.push(innerArray[i])
+            }
+        }    
     }
-    
-    isAdult(){
-        if(this.age > 18){
-            return `${this.firstName} is an adult.`
-        }else{
-            return `${this.firstName} is a minor`
-        }
-    }
+
+    helper(arr)
+    return flattenedArray
 }
 
-const person1 = new Person('Prash', 'Shrestha', 21, false)
+// console.log(flatternArray1([1, [2, [3, [4]], 5]]))
 
-console.log(person1)
-console.log(person1.getFullName());
-console.log(person1.isAdult());
+const flatternArray2 = (arr) => {
+    return arr.reduce((acc, item) => {
+        return acc.concat(Array.isArray(item) ? flatternArray2(item) : item)
+    }, [])
+}
+// console.log(flatternArray2([1, [2, [3, [4]], 5]]))
+
+
+
+

@@ -1,4 +1,4 @@
-// Allowing a function to remember and acess its lexical scope even when its executing outside its original scope
+// Allowing a function to remember and access its lexical scope even when its executing outside its original scope
 // a function inside a funciton can have access to the variable defined in the parent function even parent function finish executing
 
 

@@ -61,3 +61,10 @@ aTag.style.fontFamily = "sans-serif";
 // elem.removeChild(aTag);
 
 // elem.replaceChild(paraElem, aTag);
+
+const attribute = aTag.getAttribute("href");
+
+aTag.setAttribute("href", "https://www.youtube.com");
+// aTag.setAttribute("style", "font-size: 4rem;");
+
+// aTag.removeAttribute("href");

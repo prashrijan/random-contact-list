@@ -68,3 +68,10 @@ aTag.setAttribute("href", "https://www.youtube.com");
 // aTag.setAttribute("style", "font-size: 4rem;");
 
 // aTag.removeAttribute("href");
+document.querySelector("body").appendChild(paraElem);
+
+paraElem.classList.add("success");
+
+console.log(paraElem.classList);
+
+// paraElem.classList.remove("success");

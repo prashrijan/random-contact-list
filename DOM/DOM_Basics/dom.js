@@ -18,10 +18,46 @@
 
 // document.write("hey just adding more content");
 
-const elem = document.querySelector(".message");
+// const elem = document.querySelector(".message");
 // const val = elem.innerText;
 
 // elem.innerText = "Hey just got text updated";
-elem.innerHTML = "<h1>Hey got response from the server</h1>";
+// elem.innerHTML = "<h1>Hey got response from the server</h1>";
 
-console.log(elem);
+// console.log(elem);
+
+// const elem = document.querySelector("body");
+
+// const res = "Response from the server";
+// const textNode = document.createTextNode(res);
+
+// elem.appendChild(textNode);
+
+// console.log(elem);
+
+// const elem = document.querySelector("body");
+
+// const paraElem = document.createElement("p");
+
+// paraElem.textContent = "This is dynamic paragraph";
+
+// elem.appendChild(paraElem);
+
+// const elem = document.querySelector("body");
+const paraElem = document.createElement("p");
+
+paraElem.innerText = "Dynamic Paragraph";
+
+// elem.insertBefore(paraElem, document.querySelector(".display"));
+
+const elem = document.querySelector("body");
+const aTag = document.querySelector("[href='google.com']");
+
+aTag.style.color = "red";
+aTag.style.fontSize = "2rem";
+aTag.style.textDecoration = "none";
+aTag.style.fontFamily = "sans-serif";
+
+// elem.removeChild(aTag);
+
+// elem.replaceChild(paraElem, aTag);

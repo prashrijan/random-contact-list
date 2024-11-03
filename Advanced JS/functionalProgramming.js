@@ -95,3 +95,4 @@ const total = (money) => {
 };
 
 console.log(total(money));
+console.log(total([1, 2]));

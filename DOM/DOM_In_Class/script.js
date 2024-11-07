@@ -98,3 +98,9 @@ const toggleSucsess = () => {
 };
 
 name.addEventListener("click", toggleSucsess);
+
+document.addEventListener("keydown", (e) => {
+  let number = Number(e.key);
+
+  console.log(number);
+});

@@ -1,4 +1,7 @@
+// Endpoint
 const API = "https://randomuser.me/api/?results=10";
+
+let users = [];
 
 const slider = document.querySelector(".slider");
 const lockScreen = document.getElementById("lockScreen");
@@ -21,9 +24,10 @@ slider.addEventListener("change", (e) => {
   }
 });
 
-const displayData = (arr) => {
-  userCount.innerText = arr.length;
-  arr.forEach((element, index) => {
+const displayData = (userList) => {
+  userCount.innerText = userList.length;
+  accordionContainer.innerHTML = "";
+  userList.forEach((element, index) => {
     const accordionItem = document.createElement("div");
     accordionItem.classList.add("accordion-item");
 
@@ -105,8 +109,32 @@ const fetchData = async () => {
   const res = await fetch(API);
   const data = await res.json();
 
-  displayData(data.results);
+  users = data.results;
+  console.log(users);
+  displayData(users);
   spinner.classList.add("d-none");
+};
+
+const filterArray = (e) => {
+  const value = e.target.value.toLowerCase();
+
+  if (value.length === 0) {
+    accordionContainer.innerHTML = "";
+    displayData(users);
+    return;
+  }
+
+  const filteredUsers = users.filter((user) => {
+    return (
+      user.name.first.toLowerCase().includes(value) ||
+      user.name.last.toLowerCase().includes(value) ||
+      user.email.toLowerCase().includes(value)
+    );
+  });
+
+  accordionContainer.innerHTML = "";
+
+  displayData(filteredUsers);
 };
 
 appScreen.addEventListener("click", fetchData);
@@ -131,4 +159,4 @@ displayTime();
 
 setInterval(displayTime, 1000);
 
-searchContainer.addEventListener("keydown", filterArray);
+searchContainer.addEventListener("input", filterArray);

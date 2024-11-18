@@ -7,6 +7,7 @@ const contactScreen = document.getElementById("contactScreen");
 const spinner = document.getElementById("spinner");
 const accordionContainer = document.getElementById("accordionExample");
 const userCount = document.getElementById("userCount");
+const searchContainer = document.getElementById("searchContainer");
 
 slider.addEventListener("change", (e) => {
   let sliderValue = e.currentTarget.value;
@@ -23,7 +24,6 @@ slider.addEventListener("change", (e) => {
 const displayData = (arr) => {
   userCount.innerText = arr.length;
   arr.forEach((element, index) => {
-    console.log(element);
     const accordionItem = document.createElement("div");
     accordionItem.classList.add("accordion-item");
 
@@ -130,3 +130,5 @@ function displayTime() {
 displayTime();
 
 setInterval(displayTime, 1000);
+
+searchContainer.addEventListener("keydown", filterArray);

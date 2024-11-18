@@ -1,13 +1,93 @@
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Funnel+Display:wght@300..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* outline: 2px solid black; */
 }
 
 html,
 body {
   width: 100%;
   height: 100%;
+  font-family: sans-serif;
+}
+
+p {
+  margin: 0;
+}
+
+.wrapper {
+  background: url("assests/bg.avif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.phone-container {
+  height: 600px;
+  width: 300px;
+  background: url("assests/phone-bg.avif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.notch {
+  width: 25%;
+  height: 20px;
+  background-color: #000;
+}
+
+.fs-6 {
+  font-size: 1.2rem;
+}
+
+.phone-container::-webkit-scrollbar {
+  display: none;
+}
+
+.slider-container {
+  top: 65%;
+  background-color: #ffffff14;
+  backdrop-filter: blur(10px);
+  box-shadow: 1px 2px 14px 6px rgba(0, 0, 0, 0.22) inset;
+}
+
+.slider {
+  width: 100%;
+}
+
+.slider {
+  appearance: none;
+  z-index: 99;
+  background-color: transparent;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: url("assests/arrow-right-circle-fill.svg");
+  background-size: cover;
+  background-position: center;
+}
+
+.slider-label {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.logo {
+  background-color: #fff;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.128);
+  height: 100%;
+  width: 100%;
 }

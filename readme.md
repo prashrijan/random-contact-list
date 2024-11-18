@@ -1,18 +1,5 @@
 # Random Contact List App
 
-## Table of Contents
-
-- [Introduction](#introduction)
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Setup Instructions](#setup-instructions)
-- [Folder Structure](#folder-structure)
-- [API Details](#api-details)
-- [Code Breakdown](#code-breakdown)
-- [License](#license)
-
----
-
 ## Introduction
 
 The **Random Contact List App** simulates a phone interface with a contacts list fetched dynamically from an external API. It includes interactive UI features like unlocking the screen, searching for contacts, and viewing detailed contact information.

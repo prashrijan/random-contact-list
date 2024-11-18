@@ -46,7 +46,7 @@ const displayData = (arr) => {
                     </div>
                     <div class="ms-2">
                       <h5 class="fw-bold">${element.name.title}. ${element.name.first} ${element.name.last}</h5>
-                      <p>${element.location.street.number}${element.location.street.name}</p>
+                      <p>${element.location.street.number}, ${element.location.street.name}</p>
                     </div>
                   </button>
                 </h2>

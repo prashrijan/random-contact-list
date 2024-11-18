@@ -1,8 +1,10 @@
-// Endpoint
+// Endpoint URL for fetching random user data
 const API = "https://randomuser.me/api/?results=10";
 
+// Array to store fetched user data
 let users = [];
 
+// DOM elements references
 const slider = document.querySelector(".slider");
 const lockScreen = document.getElementById("lockScreen");
 const appScreen = document.getElementById("appScreen");
@@ -15,17 +17,22 @@ const searchContainer = document.getElementById("searchContainer");
 slider.addEventListener("change", (e) => {
   let sliderValue = e.currentTarget.value;
 
+  // Reset slider value if below 100
   if (sliderValue < 100) {
     slider.value = 0;
   }
+
+  // Unlock the app screen when slider reaches 100
   if (sliderValue === "100") {
     lockScreen.classList.add("d-none");
     appScreen.classList.replace("d-none", "d-flex");
   }
 });
 
+// Function to display user data in the accordion
 const displayData = (userList) => {
   userCount.innerText = userList.length;
+
   accordionContainer.innerHTML = "";
   userList.forEach((element, index) => {
     const accordionItem = document.createElement("div");
@@ -102,7 +109,9 @@ const displayData = (userList) => {
   });
 };
 
+// Function to fetch user data from the API
 const fetchData = async () => {
+  // Hide the app screen and show the contact screen
   appScreen.classList.replace("d-flex", "d-none");
   contactScreen.classList.add("d-block");
 
@@ -111,10 +120,13 @@ const fetchData = async () => {
 
   users = data.results;
   console.log(users);
+
   displayData(users);
+
   spinner.classList.add("d-none");
 };
 
+// Function to filter the user list based on the search input
 const filterArray = (e) => {
   const value = e.target.value.toLowerCase();
 
@@ -124,6 +136,7 @@ const filterArray = (e) => {
     return;
   }
 
+  // Filter users based on the search query
   const filteredUsers = users.filter((user) => {
     return (
       user.name.first.toLowerCase().includes(value) ||
@@ -133,7 +146,6 @@ const filterArray = (e) => {
   });
 
   accordionContainer.innerHTML = "";
-
   displayData(filteredUsers);
 };
 
@@ -141,7 +153,7 @@ appScreen.addEventListener("click", fetchData);
 
 const timeContainer = document.querySelector(".time");
 
-// Get Current Time
+// Function to get the current time in HH:MM format
 function getCurrentTime() {
   const now = new Date();
   const hours = String(now.getHours()).padStart(2, "0");
@@ -149,9 +161,9 @@ function getCurrentTime() {
   return `${hours}:${minutes}`;
 }
 
+// Function to update the displayed time every second
 function displayTime() {
   let currentTime = getCurrentTime();
-
   timeContainer.innerHTML = `<p>${currentTime}</p>`;
 }
 
@@ -159,4 +171,5 @@ displayTime();
 
 setInterval(displayTime, 1000);
 
+// Event listener for filtering users based on search input
 searchContainer.addEventListener("input", filterArray);

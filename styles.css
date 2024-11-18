@@ -12,8 +12,15 @@ body {
   font-family: sans-serif;
 }
 
-p {
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+p,
+i {
   margin: 0;
+  cursor: pointer;
 }
 
 .wrapper {
@@ -42,7 +49,7 @@ p {
   font-size: 1.2rem;
 }
 
-.phone-container::-webkit-scrollbar {
+#contactScreen::-webkit-scrollbar {
   display: none;
 }
 
@@ -71,6 +78,7 @@ p {
   background: url("assests/arrow-right-circle-fill.svg");
   background-size: cover;
   background-position: center;
+  cursor: pointer;
 }
 
 .slider-label {
@@ -86,8 +94,27 @@ p {
   background-color: #fff;
 }
 
-.overlay {
-  background-color: rgba(0, 0, 0, 0.128);
-  height: 100%;
-  width: 100%;
+.bg-dark {
+  --bs-bg-opacity: 0.5;
+}
+
+.profileImage,
+.cardImage {
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+}
+
+.profileImage {
+  height: 50px;
+  width: 50px;
+}
+
+.cardImage {
+  height: 100px;
+  width: 100px;
+}
+
+.details {
+  font-size: 1.1rem;
 }

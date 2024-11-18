@@ -1,4 +1,5 @@
-const API = "https://randomuser.me/api/?results=10";
+const API = "https://randomuser.me/api/?results=10"
+let data ;
 
 const slider = document.querySelector(".slider");
 const lockScreen = document.getElementById("lockScreen");
@@ -98,12 +99,16 @@ const displayData = (arr) => {
   });
 };
 
+const filterArray = (e) => {
+  const searchContact = data.results.find(contact =>e.key === contact.name.first )
+  data.results = data.results.filter(result => e.key === searchContact)
+}
 const fetchData = async () => {
   appScreen.classList.replace("d-flex", "d-none");
   contactScreen.classList.add("d-block");
 
   const res = await fetch(API);
-  const data = await res.json();
+  data = await res.json();
 
   displayData(data.results);
   spinner.classList.add("d-none");

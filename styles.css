@@ -118,3 +118,7 @@ i {
 .details {
   font-size: 1.1rem;
 }
+
+#contactScreen {
+  height: 110%;
+}

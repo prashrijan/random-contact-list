@@ -114,16 +114,19 @@ const fetchData = async () => {
   // Hide the app screen and show the contact screen
   appScreen.classList.replace("d-flex", "d-none");
   contactScreen.classList.add("d-block");
+  try {
+    const res = await fetch(API);
+    const data = await res.json();
 
-  const res = await fetch(API);
-  const data = await res.json();
+    users = data.results;
+    console.log(users);
 
-  users = data.results;
-  console.log(users);
+    displayData(users);
 
-  displayData(users);
-
-  spinner.classList.add("d-none");
+    spinner.classList.add("d-none");
+  } catch (error) {
+    alert(error);
+  }
 };
 
 // Function to filter the user list based on the search input

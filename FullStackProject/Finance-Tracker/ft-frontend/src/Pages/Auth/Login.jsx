@@ -1,17 +1,27 @@
 import React, { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
+import { Link } from "react-router-dom";
 
-const Login = () => {
+const Login = ({ loginUser }) => {
   const [showPassword, setShowPassword] = useState(false);
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    loginUser({ email, password });
+  };
 
   return (
     <div className="flex flex-col md:flex-row items-center justify-center h-full bg-gray-900 text-white p-5 gap-4">
       {/* Left Section */}
-      <div className="md:w-[25%] flex flex-col justify-center p-5 text-left">
+      <div className="flex flex-col justify-center p-5 text-left">
         <img
-          src="../../../public/login-image.png"
+          src="../../../public/login.png"
           alt="Secure Login"
-          className="mb-5 rounded-lg size-72"
+          className="mb-5 size-72"
         />
         <h1 className="text-3xl font-bold mb-2">Welcome Back</h1>
         <p className="text-lg text-gray-400">
@@ -19,7 +29,10 @@ const Login = () => {
         </p>
       </div>
       {/* Right Section */}
-      <form className="md:w-[70%] bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md">
+      <form
+        className=" bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md"
+        onSubmit={(e) => handleLogin(e)}
+      >
         <h2 className="text-2xl font-bold text-center mb-6">Log In</h2>
         {/* Email */}
         <div className="relative z-0 w-full mb-5 group">
@@ -30,6 +43,8 @@ const Login = () => {
             className="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-gray-600 text-white appearance-none focus:outline-none focus:ring-0 focus:border-blue-500 peer"
             placeholder=" "
             required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <label
             htmlFor="email"
@@ -47,6 +62,8 @@ const Login = () => {
             className="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-gray-600 text-white appearance-none focus:outline-none focus:ring-0 focus:border-blue-500 peer"
             placeholder=" "
             required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <label
             htmlFor="password"
@@ -73,9 +90,9 @@ const Login = () => {
         </button>
         <p className="text-center text-gray-400 mt-4">
           Don't have an account?{" "}
-          <a href="#" className="text-blue-500 hover:underline">
+          <Link to="/signup" className="text-blue-500 hover:underline">
             Sign Up
-          </a>
+          </Link>
         </p>
       </form>
     </div>

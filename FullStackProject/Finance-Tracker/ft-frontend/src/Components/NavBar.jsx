@@ -1,21 +1,37 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-const NavBar = () => {
+import React, { useState, useEffect } from "react";
+import { Link, NavLink } from "react-router-dom"; // Use NavLink for active styling
+import { capitalizeFirstLetter } from "../Others/capitalize";
+
+const NavBar = ({ handleLogout }) => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const accessToken = JSON.parse(localStorage.getItem("accessToken"));
+  useEffect(() => {
+    try {
+      accessToken ? setIsLoggedIn(true) : setIsLoggedIn(false);
+    } catch (error) {
+      console.log(error);
+      setIsLoggedIn(false);
+    }
+  }, [accessToken]);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
   return (
-    <nav className="bg-gray-900 border-gray-200">
+    <nav className="bg-gray-900 border-gray-200 shadow-lg">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <Link to="/" className="flex items-center space-x-3">
+        {/* Logo and Brand Name */}
+        <NavLink to="/" className="flex items-center space-x-3">
           <img src="/assests/logo.png" className="h-8" alt="Logo" />
           <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">
             Finance Tracker
           </span>
-        </Link>
+        </NavLink>
+
+        {/* Hamburger Menu Button (for mobile) */}
         <button
           onClick={toggleMenu}
           type="button"
@@ -40,53 +56,92 @@ const NavBar = () => {
             />
           </svg>
         </button>
+
+        {/* Navigation Links */}
         <div
           className={`${
             menuOpen ? "block" : "hidden"
           } w-full md:block md:w-auto`}
           id="navbar-default"
         >
-          <ul className="font-medium text-white flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 ">
+          <ul className="font-medium text-white flex flex-col p-4 md:p-0 mt-4 border border-gray-700 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 bg-gray-800 md:bg-transparent shadow-md md:shadow-none">
             <li>
-              <Link
+              <NavLink
                 to="/"
-                className="block py-2 px-3  rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
+                className={({ isActive }) =>
+                  `block py-2 px-3 rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-400 md:p-0 transition-colors duration-200 ${
+                    isActive ? "text-blue-400 font-bold" : ""
+                  }`
+                }
               >
                 Home
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link
+              <NavLink
                 to="/about"
-                className="block py-2 px-3  rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
+                className={({ isActive }) =>
+                  `block py-2 px-3 rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-400 md:p-0 transition-colors duration-200 ${
+                    isActive ? "text-blue-400 font-bold" : ""
+                  }`
+                }
               >
                 About
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link
+              <NavLink
                 to="/contact"
-                className="block py-2 px-3  rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
+                className={({ isActive }) =>
+                  `block py-2 px-3 rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-400 md:p-0 transition-colors duration-200 ${
+                    isActive ? "text-blue-400 font-bold" : ""
+                  }`
+                }
               >
                 Contact
-              </Link>
+              </NavLink>
             </li>
-            <li>
-              <Link
-                to="/login"
-                className="block py-2 px-3  rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
-              >
-                Login
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/signup"
-                className="block py-2 px-3  rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
-              >
-                Sign Up
-              </Link>
-            </li>
+
+            {/* Conditional Rendering */}
+            {isLoggedIn ? (
+              <>
+                <li>
+                  <button
+                    onClick={handleLogout}
+                    className="block py-2 px-3 rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-400 md:p-0 transition-colors duration-200"
+                  >
+                    Logout
+                  </button>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <NavLink
+                    to="/login"
+                    className={({ isActive }) =>
+                      `block py-2 px-3 rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-400 md:p-0 transition-colors duration-200 ${
+                        isActive ? "text-blue-400 font-bold" : ""
+                      }`
+                    }
+                  >
+                    Login
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/signup"
+                    className={({ isActive }) =>
+                      `block py-2 px-3 rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-400 md:p-0 transition-colors duration-200 ${
+                        isActive ? "text-blue-400 font-bold" : ""
+                      }`
+                    }
+                  >
+                    Sign Up
+                  </NavLink>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </div>

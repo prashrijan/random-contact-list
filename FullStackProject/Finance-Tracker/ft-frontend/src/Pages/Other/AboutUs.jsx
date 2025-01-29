@@ -48,7 +48,7 @@ const AboutUs = () => {
             {/* Team Member 1 */}
             <div className="text-center">
               <div className="bg-gray-700 overflow-hidden size-40 mx-auto rounded-full flex items-center justify-center text-4xl mb-4">
-                <img src="../../public/profile.png" alt="prashrijan" />
+                <img src="/profile.png" alt="prashrijan" />
               </div>
               <h3 className="text-xl font-semibold">Prashrijan Shrestha</h3>
               <p className="text-gray-300">Founder & CEO</p>
@@ -57,7 +57,7 @@ const AboutUs = () => {
             {/* Team Member 2 */}
             <div className="text-center">
               <div className="bg-gray-700 overflow-hidden size-40 mx-auto rounded-full flex items-center justify-center text-4xl mb-4">
-                <img src="../../public/ram.png" alt="ram" />
+                <img src="/ram.png" alt="ram" />
               </div>
               <h3 className="text-xl font-semibold">Ram Dhimal</h3>
               <p className="text-gray-300">Lead Developer</p>
@@ -66,7 +66,7 @@ const AboutUs = () => {
             {/* Team Member 3 */}
             <div className="text-center">
               <div className="bg-gray-700 overflow-hidden size-40 mx-auto rounded-full flex items-center justify-center text-4xl mb-4">
-                <img src="../../public/shubik.jpg" alt="shubik" />
+                <img src="/shubik.jpg" alt="shubik" />
               </div>
               <h3 className="text-xl font-semibold">Shubik Bhatt</h3>
               <p className="text-gray-300">Product Designer</p>

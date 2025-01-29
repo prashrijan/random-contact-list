@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
+    <div className="min-h-screen bg-gray-900 text-white p-6 md:py-20">
       {/* Hero Section */}
       <section className="text-center py-20 bg-gray-800">
         <div className="max-w-4xl mx-auto px-4">

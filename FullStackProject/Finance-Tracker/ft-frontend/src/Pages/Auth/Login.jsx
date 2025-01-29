@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import { Link } from "react-router-dom";
 import * as Yup from "yup";
+import { useAuth } from "../../Context/Auth/AuthContext";
 
-const Login = ({ loginUser, errors, setErrors }) => {
+const Login = () => {
+  const { loginUser, errors, setErrors } = useAuth();
+  useEffect(() => {
+    setErrors({});
+  }, []);
   const [showPassword, setShowPassword] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -50,11 +55,7 @@ const Login = ({ loginUser, errors, setErrors }) => {
     <div className="flex flex-col md:flex-row items-center justify-center h-full bg-gray-900 text-white p-5 gap-4">
       {/* Left Section */}
       <div className="flex flex-col justify-center p-5 text-left">
-        <img
-          src="../../../public/login.png"
-          alt="Secure Login"
-          className="mb-5 size-72"
-        />
+        <img src="/login.png" alt="Secure Login" className="mb-5 size-72" />
         <h1 className="text-3xl font-bold mb-2">Welcome Back</h1>
         <p className="text-lg text-gray-400">
           Log in to your account to continue saving and achieving your goals.

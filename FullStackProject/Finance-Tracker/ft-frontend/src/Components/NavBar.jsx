@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom"; // Use NavLink for active styling
-import { capitalizeFirstLetter } from "../Others/capitalize";
+import { NavLink } from "react-router-dom";
+import { useAuth } from "../Context/Auth/AuthContext";
 
-const NavBar = ({ handleLogout }) => {
+const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const { handleLogout, isLoggedIn, setIsLoggedIn } = useAuth();
 
   const accessToken = JSON.parse(localStorage.getItem("accessToken"));
   useEffect(() => {

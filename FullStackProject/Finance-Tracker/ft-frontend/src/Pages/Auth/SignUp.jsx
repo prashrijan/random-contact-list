@@ -1,9 +1,16 @@
-import React, { useState } from "react";
-import { Eye, EyeOff } from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { CloudFog, Eye, EyeOff } from "lucide-react";
 import { Link } from "react-router-dom";
 import * as Yup from "yup";
+import { useAuth } from "../../Context/Auth/AuthContext";
 
-const SignUp = ({ registerUser, errors, setErrors }) => {
+const SignUp = () => {
+  const { registerUser, errors, setErrors } = useAuth();
+
+  useEffect(() => {
+    setErrors({});
+  }, []);
+
   const [formData, setFormData] = useState({
     userName: "",
     email: "",
@@ -69,7 +76,7 @@ const SignUp = ({ registerUser, errors, setErrors }) => {
       {/* Left Section */}
       <div className=" flex flex-col items-center md:items-start md:justify-center p-5 text-left">
         <img
-          src="../../../public/grow-money.png"
+          src="/grow-money.png"
           alt="Watch your money grow"
           className="mb-5 size-72"
         />

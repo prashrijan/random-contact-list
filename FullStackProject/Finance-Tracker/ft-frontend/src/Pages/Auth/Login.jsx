@@ -1,17 +1,49 @@
 import React, { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import { Link } from "react-router-dom";
+import * as Yup from "yup";
 
-const Login = ({ loginUser }) => {
+const Login = ({ loginUser, errors, setErrors }) => {
   const [showPassword, setShowPassword] = useState(false);
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
 
-  const handleLogin = (e) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const loginValidationSchema = Yup.object({
+    email: Yup.string()
+      .email("Please enter a valid email.")
+      .required("Email is required."),
+    password: Yup.string().required("Password is required."),
+  });
+
+  const handleLogin = async (e) => {
     e.preventDefault();
 
-    loginUser({ email, password });
+    try {
+      await loginValidationSchema.validate(formData, {
+        abortEarly: false,
+      });
+      setErrors({});
+      loginUser(formData);
+    } catch (error) {
+      const newErrors = {};
+
+      error.inner.forEach((err) => {
+        newErrors[err.path] = err.message;
+      });
+
+      setErrors(newErrors);
+    }
   };
 
   return (
@@ -37,14 +69,17 @@ const Login = ({ loginUser }) => {
         {/* Email */}
         <div className="relative z-0 w-full mb-5 group">
           <input
-            type="email"
+            type="text"
             name="email"
             id="email"
-            className="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-gray-600 text-white appearance-none focus:outline-none focus:ring-0 focus:border-blue-500 peer"
+            className={`block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 ${
+              errors.email
+                ? "border-red-500 shake-animation"
+                : "border-gray-600"
+            } text-white appearance-none focus:outline-none focus:ring-0 focus:border-blue-500 peer`}
             placeholder=" "
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={formData.email}
+            onChange={handleChange}
           />
           <label
             htmlFor="email"
@@ -52,6 +87,9 @@ const Login = ({ loginUser }) => {
           >
             Email
           </label>
+          {errors.email && (
+            <span className="text-red-500 text-sm mt-1">{errors.email}</span>
+          )}
         </div>
         {/* Password */}
         <div className="relative z-0 w-full mb-5 group">
@@ -59,11 +97,14 @@ const Login = ({ loginUser }) => {
             type={showPassword ? "text" : "password"}
             name="password"
             id="password"
-            className="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-gray-600 text-white appearance-none focus:outline-none focus:ring-0 focus:border-blue-500 peer"
+            className={`block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 ${
+              errors.password
+                ? "border-red-500 shake-animation"
+                : "border-gray-600"
+            } text-white appearance-none focus:outline-none focus:ring-0 focus:border-blue-500 peer`}
             placeholder=" "
-            required
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={formData.password}
+            onChange={handleChange}
           />
           <label
             htmlFor="password"
@@ -71,6 +112,9 @@ const Login = ({ loginUser }) => {
           >
             Password
           </label>
+          {errors.password && (
+            <span className="text-red-500 text-sm mt-1">{errors.password}</span>
+          )}
           <span
             className="absolute right-2 top-2 cursor-pointer"
             onClick={() => setShowPassword(!showPassword)}

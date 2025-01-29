@@ -1,20 +1,24 @@
 import React, { useState } from "react";
+import {
+  Footer,
+  NavBar,
+  SignUp,
+  Login,
+  HomePage,
+  ContactUs,
+  AboutUs,
+  Dashboard,
+  SkeletonLoader,
+} from "./index";
 import { motion } from "framer-motion";
-import Footer from "./Components/Footer";
-import NavBar from "./Components/NavBar";
-import SignUp from "./Pages/Auth/SignUp";
 import { Route, Routes, useNavigate } from "react-router-dom";
-import Login from "./Pages/Auth/Login";
-import HomePage from "./Pages/HomePage";
-import ContactUs from "./Pages/ContactUs";
-import AboutUs from "./Pages/AboutUs";
 import { ToastContainer, toast } from "react-toastify";
-
 import axios from "axios";
-import Dashboard from "./Pages/Dashboard/Dashboard";
 
 function App() {
   const [showContent, setShowContent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState({});
 
   const endpoint = "http://localhost:8080/api/v1";
 
@@ -24,20 +28,31 @@ function App() {
     setShowContent(true);
   };
 
-  const registerUser = (user) => {
+  const registerUser = ({ userName, email, password }) => {
     axios
-      .post(`${endpoint}/users/register`, user)
+      .post(`${endpoint}/users/register`, { userName, email, password })
       .then((res) => {
-        console.log(res);
+        setErrors({});
         toast.success("Account created successfully.", {
           autoClose: 2500,
           pauseOnHover: false,
         });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        if (err.status === 409) {
+          setErrors({
+            ...errors,
+            userName: err.response?.data?.message,
+            email: err.response?.data?.message,
+          });
+        }
+        return;
+      });
   };
 
   const loginUser = (user) => {
+    setLoading(true);
     axios
       .post(`${endpoint}/users/login`, user)
       .then((res) => {
@@ -47,9 +62,35 @@ function App() {
           JSON.stringify(res.data?.data?.accessToken)
         );
         navigate("/dashboard");
+        setErrors({});
+        setLoading(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        setLoading(false);
+
+        if (err.response && err.response.status === 404) {
+          setErrors({
+            ...errors,
+            email: "User with this email does not exist.",
+            password: "",
+          });
+        } else if (err.response && err.response.status === 401) {
+          setErrors({
+            ...errors,
+            password: "Invalid password.",
+            email: "",
+          });
+        } else {
+          setErrors({
+            ...errors,
+            email: "An error occurred. Please try again.",
+            password: "",
+          });
+        }
+      });
   };
+
+  console.log(errors);
 
   const getUserName = async () => {
     const accessToken = JSON.parse(localStorage.getItem("accessToken"));
@@ -65,6 +106,7 @@ function App() {
 
   const handleLogout = () => {
     localStorage.removeItem("accessToken");
+    localStorage.removeItem("username");
     navigate("/login");
   };
 
@@ -94,22 +136,43 @@ function App() {
           className="flex flex-col flex-grow"
         >
           <NavBar getUserName={getUserName} handleLogout={handleLogout} />
-          <div className="flex flex-col flex-grow items-center justify-center">
-            <Routes>
-              <Route path="/login" element={<Login loginUser={loginUser} />} />
-              <Route
-                path="/signup"
-                element={<SignUp registerUser={registerUser} />}
-              />
-              <Route path="/" element={<HomePage />} />
-              <Route path="/contact" element={<ContactUs />} />
-              <Route path="/about" element={<AboutUs />} />
-              <Route
-                path="/dashboard"
-                element={<Dashboard getUserName={getUserName} />}
-              />
-            </Routes>
-          </div>
+
+          {loading ? (
+            <SkeletonLoader />
+          ) : (
+            <div className="flex flex-col flex-grow items-center justify-center">
+              <Routes>
+                <Route
+                  path="/login"
+                  element={
+                    <Login
+                      loginUser={loginUser}
+                      errors={errors}
+                      setErrors={setErrors}
+                    />
+                  }
+                />
+                <Route
+                  path="/signup"
+                  element={
+                    <SignUp
+                      registerUser={registerUser}
+                      errors={errors}
+                      setErrors={setErrors}
+                    />
+                  }
+                />
+                <Route path="/" element={<HomePage />} />
+                <Route path="/contact" element={<ContactUs />} />
+                <Route path="/about" element={<AboutUs />} />
+                <Route
+                  path="/dashboard"
+                  element={<Dashboard getUserName={getUserName} />}
+                />
+              </Routes>
+            </div>
+          )}
+
           <Footer />
           <ToastContainer />
         </motion.div>

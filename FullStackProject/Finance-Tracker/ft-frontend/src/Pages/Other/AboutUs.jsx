@@ -47,28 +47,28 @@ const AboutUs = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Team Member 1 */}
             <div className="text-center">
-              <div className="bg-gray-700 h-48 w-48 mx-auto rounded-full flex items-center justify-center text-4xl mb-4">
-                👨‍💻
+              <div className="bg-gray-700 overflow-hidden size-40 mx-auto rounded-full flex items-center justify-center text-4xl mb-4">
+                <img src="../../public/profile.png" alt="prashrijan" />
               </div>
-              <h3 className="text-xl font-semibold">John Doe</h3>
+              <h3 className="text-xl font-semibold">Prashrijan Shrestha</h3>
               <p className="text-gray-300">Founder & CEO</p>
             </div>
 
             {/* Team Member 2 */}
             <div className="text-center">
-              <div className="bg-gray-700 h-48 w-48 mx-auto rounded-full flex items-center justify-center text-4xl mb-4">
-                👩‍💻
+              <div className="bg-gray-700 overflow-hidden size-40 mx-auto rounded-full flex items-center justify-center text-4xl mb-4">
+                <img src="../../public/ram.png" alt="ram" />
               </div>
-              <h3 className="text-xl font-semibold">Jane Smith</h3>
+              <h3 className="text-xl font-semibold">Ram Dhimal</h3>
               <p className="text-gray-300">Lead Developer</p>
             </div>
 
             {/* Team Member 3 */}
             <div className="text-center">
-              <div className="bg-gray-700 h-48 w-48 mx-auto rounded-full flex items-center justify-center text-4xl mb-4">
-                🧑‍💻
+              <div className="bg-gray-700 overflow-hidden size-40 mx-auto rounded-full flex items-center justify-center text-4xl mb-4">
+                <img src="../../public/shubik.jpg" alt="shubik" />
               </div>
-              <h3 className="text-xl font-semibold">Mike Johnson</h3>
+              <h3 className="text-xl font-semibold">Shubik Bhatt</h3>
               <p className="text-gray-300">Product Designer</p>
             </div>
           </div>

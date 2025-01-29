@@ -64,10 +64,10 @@ const NavBar = ({ handleLogout }) => {
           } w-full md:block md:w-auto`}
           id="navbar-default"
         >
-          <ul className="font-medium text-white flex flex-col p-4 md:p-0 mt-4 border border-gray-700 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 bg-gray-800 md:bg-transparent shadow-md md:shadow-none">
+          <ul className="font-medium text-white flex flex-col p-4 md:p-0 mt-4 border border-gray-700 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 bg-gray-800 md:bg-transparent shadow-md md:shadow-none md:items-center">
             <li>
               <NavLink
-                to="/"
+                to={isLoggedIn ? "/dashboard" : "/"}
                 className={({ isActive }) =>
                   `block py-2 px-3 rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-400 md:p-0 transition-colors duration-200 ${
                     isActive ? "text-blue-400 font-bold" : ""
@@ -106,9 +106,21 @@ const NavBar = ({ handleLogout }) => {
             {isLoggedIn ? (
               <>
                 <li>
+                  <NavLink
+                    to="/transactions"
+                    className={({ isActive }) =>
+                      `block py-2 px-3 rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-400 md:p-0 transition-colors duration-200 ${
+                        isActive ? "text-blue-400 font-bold" : ""
+                      }`
+                    }
+                  >
+                    Transactions
+                  </NavLink>
+                </li>
+                <li>
                   <button
                     onClick={handleLogout}
-                    className="block py-2 px-3 rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-400 md:p-0 transition-colors duration-200"
+                    className="block py-3 px-4 rounded hover:bg-red-700  md:hover:text-blue-400 transition-colors duration-200 bg-red-500"
                   >
                     Logout
                   </button>

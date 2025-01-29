@@ -1,33 +1,69 @@
 import React, { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router";
+import * as Yup from "yup";
 
-const SignUp = ({ registerUser }) => {
+const SignUp = ({ registerUser, errors, setErrors }) => {
+  const [formData, setFormData] = useState({
+    userName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [userName, setUserName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
 
-  let navigate = useNavigate();
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
 
-  const handleRegister = (e) => {
+  const formValidationSchema = Yup.object({
+    userName: Yup.string().required("Username is required."),
+    email: Yup.string()
+      .email("Please enter a valid email.")
+      .required("Email is required."),
+    password: Yup.string()
+      .matches(
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+        "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character"
+      )
+      .min(8, "Password must be at least 8 characters."),
+    confirmPassword: Yup.string()
+      .oneOf([Yup.ref("password")], "Passwords must match.")
+      .required("Confirm Password is required."),
+  });
+
+  const handleRegister = async (e) => {
     e.preventDefault();
 
-    if (confirmPassword !== password) {
-      alert("Passwords doesnot match.");
-      return;
-    }
-    registerUser({ userName, email, password });
+    try {
+      await formValidationSchema.validate(formData, {
+        abortEarly: false,
+      });
+      setErrors({});
+      registerUser(formData);
+      setFormData({
+        userName: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+      });
+    } catch (error) {
+      const newErrors = {};
 
-    setUserName("");
-    setEmail("");
-    setConfirmPassword("");
-    setPassword("");
-    navigate("/login");
+      error.inner.forEach((err) => {
+        newErrors[err.path] = err.message;
+      });
+
+      setErrors(newErrors);
+    }
   };
+
   return (
     <div className="flex flex-col md:flex-row items-center justify-center h-full  bg-gray-900 text-white p-5 gap-4">
       {/* Left Section */}
@@ -52,32 +88,41 @@ const SignUp = ({ registerUser }) => {
         <div className="relative z-0 w-full mb-5 group">
           <input
             type="text"
-            name="username"
-            id="username"
-            className="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-gray-600 text-white appearance-none focus:outline-none focus:ring-0 focus:border-blue-500 peer"
+            name="userName"
+            id="userName"
+            className={`block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 ${
+              errors.userName
+                ? "border-red-500 shake-animation"
+                : "border-gray-600"
+            } text-white appearance-none focus:outline-none focus:ring-0 focus:border-blue-500 peer`}
             placeholder=" "
-            required
-            value={userName}
-            onChange={(e) => setUserName(e.target.value)}
+            value={formData.userName}
+            onChange={handleChange}
           />
           <label
-            htmlFor="username"
+            htmlFor="userName"
             className="absolute text-sm text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >
             Username
           </label>
+          {errors.userName && (
+            <span className="text-red-500 text-sm mt-1">{errors.userName}</span>
+          )}
         </div>
         {/* Email */}
         <div className="relative z-0 w-full mb-5 group">
           <input
-            type="email"
+            type="text"
             name="email"
             id="email"
-            className="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-gray-600 text-white appearance-none focus:outline-none focus:ring-0 focus:border-blue-500 peer"
+            className={`block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 ${
+              errors.email
+                ? "border-red-500 shake-animation"
+                : "border-gray-600"
+            } text-white appearance-none focus:outline-none focus:ring-0 focus:border-blue-500 peer`}
             placeholder=" "
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={formData.email}
+            onChange={handleChange}
           />
           <label
             htmlFor="email"
@@ -85,6 +130,9 @@ const SignUp = ({ registerUser }) => {
           >
             Email
           </label>
+          {errors.email && (
+            <span className="text-red-500 text-sm mt-1">{errors.email}</span>
+          )}
         </div>
         {/* Password */}
         <div className="relative z-0 w-full mb-5 group">
@@ -92,11 +140,14 @@ const SignUp = ({ registerUser }) => {
             type={showPassword ? "text" : "password"}
             name="password"
             id="password"
-            className="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-gray-600 text-white appearance-none focus:outline-none focus:ring-0 focus:border-blue-500 peer"
+            className={`block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 ${
+              errors.password
+                ? "border-red-500 shake-animation"
+                : "border-gray-600"
+            } text-white appearance-none focus:outline-none focus:ring-0 focus:border-blue-500 peer`}
             placeholder=" "
-            required
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={formData.password}
+            onChange={handleChange}
           />
           <label
             htmlFor="password"
@@ -104,6 +155,9 @@ const SignUp = ({ registerUser }) => {
           >
             Password
           </label>
+          {errors.password && (
+            <span className="text-red-500 text-sm mt-1">{errors.password}</span>
+          )}
           <span
             className="absolute right-2 top-2 cursor-pointer"
             onClick={() => setShowPassword(!showPassword)}
@@ -119,20 +173,28 @@ const SignUp = ({ registerUser }) => {
         <div className="relative z-0 w-full mb-5 group">
           <input
             type={showConfirmPassword ? "text" : "password"}
-            name="confirm_password"
-            id="confirm_password"
-            className="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-gray-600 text-white appearance-none focus:outline-none focus:ring-0 focus:border-blue-500 peer"
+            name="confirmPassword"
+            id="confirmPassword"
+            className={`block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 ${
+              errors.confirmPassword
+                ? "border-red-500 shake-animation"
+                : "border-gray-600"
+            } text-white appearance-none focus:outline-none focus:ring-0 focus:border-blue-500 peer`}
             placeholder=" "
-            required
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
+            value={formData.confirmPassword}
+            onChange={handleChange}
           />
           <label
-            htmlFor="confirm_password"
+            htmlFor="confirmPassword"
             className="absolute text-sm text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >
             Confirm Password
           </label>
+          {errors.confirmPassword && (
+            <span className="text-red-500 text-sm mt-1">
+              {errors.confirmPassword}
+            </span>
+          )}
           <span
             className="absolute right-2 top-2 cursor-pointer"
             onClick={() => setShowConfirmPassword(!showConfirmPassword)}

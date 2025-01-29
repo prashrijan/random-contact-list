@@ -18,9 +18,7 @@ const Dashboard = ({ getUserName }) => {
     fetchUserName();
   }, [getUserName]);
   return (
-    <div className="mt-40 text-white">
-      Hello {capitalizeFirstLetter(userName)}
-    </div>
+    <div className="   text-white">Hello {capitalizeFirstLetter(userName)}</div>
   );
 };
 
